@@ -1,0 +1,20 @@
+
+@media only screen and (max-width: $desktop) {
+    .header {
+        --headerH:91px;
+    }
+}
+@media only screen and (min-width: $desktop) {
+    .header {
+        --headerH:300px;
+    }
+}
+
+
+
+.header{
+    width: 100%;
+    height: var(--headerH);
+    margin: auto;
+    background: red;
+}

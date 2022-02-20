@@ -1,0 +1,103 @@
+@media only screen and (max-width: $desktop) {
+    .warper {
+        --warperMarginTB: 12px;
+        --warperMarginLR: 14px;
+        --gridGap:12px;
+    }
+}
+@media only screen and (min-width: $desktop) {
+    .warper {
+        --warperMarginTB: 10px;
+        --warperMarginLR: 52px;
+        --gridCols: auto auto auto auto auto auto auto;
+        --gridGap:12px;
+
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .warper {
+        --gridCols: auto auto auto auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .warper {
+        --gridCols: auto auto auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 960px) {
+    .warper {
+        --gridCols: auto auto auto auto;
+    }
+}
+@media only screen and (max-width: 780px) {
+    .warper {
+        --gridCols: auto auto auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .warper {
+        --gridCols: auto auto;
+        --gridGap:8px;
+    }
+}
+
+
+.warper {
+    --gameItemBoxW:170px;
+    --gameItemBoxH:106px;
+    --imagesRatio: 16/14;
+    --gameInfoBarBgColor:#1D2129;
+    --gameInfoBarH: 29px;
+    --gameInfoFontColor: #E6F1FF;   
+    --gameInfoBarFontLP: 10px;
+    margin: var(--warperMarginTB) var(--warperMarginLR);
+    width: auto;
+    background: purple;
+    &-games {
+        ul {
+            display: grid;
+            grid-template-columns: var(--gridCols);
+            grid-gap: var(--gridGap);
+
+            li {
+                grid-column-end: span 1;
+                grid-row-end: span 1;
+                background: violet;                
+                min-width: var(--gameItemBoxW);
+                aspect-ratio: var(--imagesRatio);
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                &:first-child {
+                    min-width: calc(((var(--gameItemBoxW) * 2) + (var(--gridGap) * 2 )) - 1px);
+                    grid-column-end: span 2;
+                    grid-row-end: span 2;
+                    border-radius: 0px 0px 10px 10px;
+                }
+                figure{
+                    display: block;
+                    width: 100%;
+                    height: calc(100% - var(--gameInfoBarH));
+                    background-size: cover;
+                    background-position: center center;   
+                   // margin-top: calc(-0.9 * var(--gameInfoBarH));                
+                }
+                .gameInfo{
+                    position: absolute;
+                    bottom: 0;                    
+                    height: var(--gameInfoBarH);
+                    line-height: var(--gameInfoBarH);
+                    width: 100%;
+                    background-color: var(--gameInfoBarBgColor);
+                    color: var(--gameInfoFontColor);
+                    z-index: 10;
+                    padding-left: var(--gameInfoBarFontLP);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+body {
+  padding: 0;
+  margin: 0;
+  background: blue;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+figure, image {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.--t05 {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 1366px) {
+  .header {
+    --headerH:91px;
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .header {
+    --headerH:300px;
+  }
+}
+
+.header {
+  width: 100%;
+  height: var(--headerH);
+  margin: auto;
+  background: red;
+}
+
+@media only screen and (max-width: 1366px) {
+  .warper {
+    --warperMarginTB: 12px;
+    --warperMarginLR: 14px;
+    --gridGap:12px;
+  }
+}
+
+@media only screen and (min-width: 1366px) {
+  .warper {
+    --warperMarginTB: 10px;
+    --warperMarginLR: 52px;
+    --gridCols: auto auto auto auto auto auto auto;
+    --gridGap:12px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .warper {
+    --gridCols: auto auto auto auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .warper {
+    --gridCols: auto auto auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .warper {
+    --gridCols: auto auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  .warper {
+    --gridCols: auto auto auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .warper {
+    --gridCols: auto auto;
+    --gridGap:8px;
+  }
+}
+
+.warper {
+  --gameItemBoxW:170px;
+  --gameItemBoxH:106px;
+  --imagesRatio: 16/14;
+  --gameInfoBarBgColor:#1D2129;
+  --gameInfoBarH: 29px;
+  --gameInfoFontColor: #E6F1FF;
+  --gameInfoBarFontLP: 10px;
+  margin: var(--warperMarginTB) var(--warperMarginLR);
+  width: auto;
+  background: purple;
+}
+
+.warper-games ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: var(--gridCols);
+      grid-template-columns: var(--gridCols);
+  grid-gap: var(--gridGap);
+}
+
+.warper-games ul li {
+  -ms-grid-column-span: 1;
+      grid-column-end: span 1;
+  -ms-grid-row-span: 1;
+      grid-row-end: span 1;
+  background: violet;
+  min-width: var(--gameItemBoxW);
+  aspect-ratio: var(--imagesRatio);
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.warper-games ul li:first-child {
+  min-width: calc(((var(--gameItemBoxW) * 2) + (var(--gridGap) * 2 )) - 1px);
+  -ms-grid-column-span: 2;
+      grid-column-end: span 2;
+  -ms-grid-row-span: 2;
+      grid-row-end: span 2;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.warper-games ul li figure {
+  display: block;
+  width: 100%;
+  height: calc(100% - var(--gameInfoBarH));
+  background-size: cover;
+  background-position: center center;
+}
+
+.warper-games ul li .gameInfo {
+  position: absolute;
+  bottom: 0;
+  height: var(--gameInfoBarH);
+  line-height: var(--gameInfoBarH);
+  width: 100%;
+  background-color: var(--gameInfoBarBgColor);
+  color: var(--gameInfoFontColor);
+  z-index: 10;
+  padding-left: var(--gameInfoBarFontLP);
+}
+/*# sourceMappingURL=main.css.map */
