@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 body {
   padding: 0;
   margin: 0;
-  background: blue;
+  background: #15171D;
 }
 
 ul, li {
@@ -37,14 +38,13 @@ figure, image {
   width: 100%;
   height: var(--headerH);
   margin: auto;
-  background: red;
 }
 
 @media only screen and (max-width: 1366px) {
   .warper {
     --warperMarginTB: 12px;
     --warperMarginLR: 14px;
-    --gridGap:12px;
+    --gridGap: 12px;
   }
 }
 
@@ -53,7 +53,7 @@ figure, image {
     --warperMarginTB: 10px;
     --warperMarginLR: 52px;
     --gridCols: auto auto auto auto auto auto auto;
-    --gridGap:12px;
+    --gridGap: 12px;
   }
 }
 
@@ -84,21 +84,22 @@ figure, image {
 @media only screen and (max-width: 600px) {
   .warper {
     --gridCols: auto auto;
-    --gridGap:8px;
+    --gridGap: 8px;
   }
 }
 
 .warper {
-  --gameItemBoxW:170px;
-  --gameItemBoxH:106px;
+  --gameItemBoxW: 170px;
+  --gameItemBoxH: 106px;
   --imagesRatio: 16/14;
-  --gameInfoBarBgColor:#1D2129;
+  --gameInfoBarBgColor: #1d2129;
   --gameInfoBarH: 29px;
-  --gameInfoFontColor: #E6F1FF;
+  --gameInfoFontColor: #e6f1ff;
   --gameInfoBarFontLP: 10px;
+  --gameInfoFontSize: 12px;
+  --gameInfoFontWeight: 500;
   margin: var(--warperMarginTB) var(--warperMarginLR);
   width: auto;
-  background: purple;
 }
 
 .warper-games ul {
@@ -114,7 +115,6 @@ figure, image {
       grid-column-end: span 1;
   -ms-grid-row-span: 1;
       grid-row-end: span 1;
-  background: violet;
   min-width: var(--gameItemBoxW);
   aspect-ratio: var(--imagesRatio);
   position: relative;
@@ -123,7 +123,7 @@ figure, image {
 }
 
 .warper-games ul li:first-child {
-  min-width: calc(((var(--gameItemBoxW) * 2) + (var(--gridGap) * 2 )) - 1px);
+  min-width: calc(((var(--gameItemBoxW) * 2) + (var(--gridGap) * 2)) - 9px);
   -ms-grid-column-span: 2;
       grid-column-end: span 2;
   -ms-grid-row-span: 2;
@@ -146,8 +146,30 @@ figure, image {
   line-height: var(--gameInfoBarH);
   width: 100%;
   background-color: var(--gameInfoBarBgColor);
-  color: var(--gameInfoFontColor);
   z-index: 10;
   padding-left: var(--gameInfoBarFontLP);
+}
+
+.warper-games ul li .gameInfo span {
+  display: block;
+  position: relative;
+  color: var(--gameInfoFontColor);
+  font-family: "Roboto", sans-serif;
+  font-size: var(--gameInfoFontSize);
+  font-weight: var(--gameInfoFontWeight);
+  opacity: 0.8;
+}
+
+.warper-games ul li .gameInfo span::after {
+  display: block;
+  content: "";
+  width: var(--gameInfoBarH);
+  height: var(--gameInfoBarH);
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background: url(../images/icons/star.svg) center center no-repeat;
+  background-size: 15px 16px;
+  opacity: 0.6;
 }
 /*# sourceMappingURL=main.css.map */
