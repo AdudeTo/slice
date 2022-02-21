@@ -54,6 +54,10 @@
     --gameInfoBarFontLP: 10px;
     --gameInfoFontSize: 12px;
     --gameInfoFontWeight: 500;
+    --gamePlayButtonsTextColor: #E6F1FF;
+    --gamePlayPlayButtonColor: #0074FA;
+    --gamePlayBarH: 32px;
+
     margin: var(--warperMarginTB) var(--warperMarginLR);
     width: auto;    
     &-games {
@@ -76,6 +80,13 @@
                     grid-row-end: span 2;
                     border-radius: 0px 0px 10px 10px;
                 }
+                &:hover{
+                    cursor: pointer;
+                    .gamePlay {
+                        bottom: 0; 
+                        opacity: 1;
+                    }
+                }
                 figure {
                     display: block;
                     width: 100%;
@@ -84,7 +95,7 @@
                     background-position: center center;
                     // margin-top: calc(-0.9 * var(--gameInfoBarH));
                 }
-                .gameInfo {
+                .gameInfo {                    
                     position: absolute;
                     bottom: 0;
                     height: var(--gameInfoBarH);
@@ -115,6 +126,34 @@
 
                         }
                     }
+                }
+                .gamePlay {
+                    transition: 0.3s;
+                    position: absolute;
+                    bottom: calc((var(--gamePlayBarH) * -1));
+                    opacity: 0;
+                    height: var(--gamePlayBarH);
+                    line-height: var(--gamePlayBarH);
+                    width: 100%;
+                    background-color: var(--gameInfoBarBgColor);                    
+                    z-index: 20;  
+                    display: grid;
+                    grid-template-columns:auto auto;    
+
+                    a{
+                        display: inline-block;                       
+                        text-align: center;
+                        color: var(--gamePlayButtonsTextColor);
+                        font-family: $generalFont;
+                        font-size: var(--gameInfoFontSize);
+                        font-weight: var(--gameInfoFontWeight);
+
+                        &:last-child{
+                            background-color: var(--gamePlayPlayButtonColor);
+                        }
+                       
+                    }
+
                 }
             }
         }

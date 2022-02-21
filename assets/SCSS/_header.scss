@@ -1,17 +1,80 @@
 
-@media only screen and (max-width: $desktop) {
+@media only screen and (min-width: 300px) {
     .header {
-        --headerH:91px;
+        --headerH:80px;
     }
 }
-@media only screen and (min-width: $desktop) {
+
+
+
+@media only screen and (min-width: 500px) {
     .header {
-        --headerH:300px;
+        --headerH:100px;
     }
 }
+
+@media only screen and (min-width: 680px) {
+    .header {
+        --headerH:120px;
+    }
+}
+
+@media only screen and (min-width: 920px) {
+    .header {
+        --headerH:150px;        
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .header {
+        --headerH:200px;        
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .header {
+        --headerH:300px;        
+    }
+}
+
+
+
 
 .header{
     width: 100%;
     height: var(--headerH);
-    margin: auto;    
+    margin: auto;  
+    background: url(../images/header_set/grdient.png);
+    background-size: auto var(--headerH);
+    position: relative;
+    .palms{
+        position: absolute;
+        width: 100%;
+        height: var(--headerH);
+        top: 0;
+        left: 0;
+        background: url(../images/header_set/palms.png) top left no-repeat;
+        background-size: auto var(--headerH);
+    }
+    .new{
+        position: absolute;
+        width: 100%;
+        height: var(--headerH);
+        top: 0;
+        left: 0;
+        background: url(../images/header_set/new.png) top right no-repeat;
+        background-size: auto var(--headerH);
+    }
+    .phone{
+        position: absolute;
+        width: 100%;
+        height: var(--headerH);
+        top: 0;
+        left: 0;
+        background: url(../images/header_set/phone.png) top center no-repeat;
+        background-size: auto var(--headerH);
+        z-index: 10;
+
+    }
+
 }
