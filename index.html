@@ -32,7 +32,7 @@
         let gamesListFilter = [];
         let gameList = document.getElementById("gameList");
         let startList = 0;
-        let maxPerLoad = 20;
+        let maxPerLoad = 5;
         let endOfTheList = 0;
         let ticking = false;
         let myLoader = document.getElementById("myLoader");
@@ -111,6 +111,17 @@
                 gameList.appendChild(item);
             }
             ticking = false;
+            let visibleDistance = 300;
+            myLoader = document.getElementById("myLoader");
+
+            if (myLoader) {
+                if ((window.pageYOffset + window.innerHeight + visibleDistance) > getOffset(myLoader).top) {
+                    console.log(getOffset(myLoader).top);                    
+                    if (!allLoaded) {
+                        printHTML();
+                    }
+                }
+            }
         }
 
 
