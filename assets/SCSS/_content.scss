@@ -66,6 +66,10 @@
             grid-template-columns: var(--gridCols);
             grid-gap: var(--gridGap);
 
+            #myLoader{
+                display: none;
+            }
+
             li {
                 grid-column-end: span 1;
                 grid-row-end: span 1;                
