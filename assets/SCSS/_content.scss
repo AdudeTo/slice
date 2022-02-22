@@ -54,25 +54,26 @@
     --gameInfoBarFontLP: 10px;
     --gameInfoFontSize: 12px;
     --gameInfoFontWeight: 500;
-    --gamePlayButtonsTextColor: #E6F1FF;
-    --gamePlayPlayButtonColor: #0074FA;
+    --gamePlayButtonsTextColor: #e6f1ff;
+    --gamePlayPlayButtonColor: #0074fa;
     --gamePlayBarH: 32px;
+    #myLoader {
+       width: 1px;
+       height: 1px;
+       visibility: hidden;
+    }
 
     margin: var(--warperMarginTB) var(--warperMarginLR);
-    width: auto;    
+    width: auto;
     &-games {
         ul {
             display: grid;
             grid-template-columns: var(--gridCols);
             grid-gap: var(--gridGap);
 
-            #myLoader{
-                display: none;
-            }
-
             li {
                 grid-column-end: span 1;
-                grid-row-end: span 1;                
+                grid-row-end: span 1;
                 min-width: var(--gameItemBoxW);
                 aspect-ratio: var(--imagesRatio);
                 position: relative;
@@ -84,11 +85,78 @@
                     grid-row-end: span 2;
                     border-radius: 0px 0px 10px 10px;
                 }
-                &:hover{
+                &:hover {
                     cursor: pointer;
                     .gamePlay {
-                        bottom: 0; 
+                        bottom: 0;
                         opacity: 1;
+                    }
+                }
+                &.volatility {                    
+                    &_1 {                        
+                        .gameInfo {
+                            span {
+                                &::after {
+                                    width: calc(22px * 4);
+                                }
+                                &::before {
+                                    width: calc(22px * 1);
+                                    right: calc((22px * 4) + 20px);
+                                }
+                            }
+                        }
+                    }
+                    &_2 {                        
+                        .gameInfo {
+                            span {
+                                &::after {
+                                    width: calc(22px * 3);
+                                }
+                                &::before {
+                                    width: calc(22px * 2);
+                                    right: calc((22px * 3) + 20px);
+                                }
+                            }
+                        }
+                    }
+                    &_3 {                        
+                        .gameInfo {
+                            span {
+                                &::after {
+                                    width: calc(22px * 2);
+                                }
+                                &::before {
+                                    width: calc(22px * 3);
+                                    right: calc((22px * 2) + 20px);
+                                }
+                            }
+                        }
+                    }
+                    &_4 {                        
+                        .gameInfo {
+                            span {
+                                &::after {
+                                    width: calc(22px * 1);
+                                }
+                                &::before {
+                                    width: calc(22px * 4);
+                                    right: calc((22px * 1) + 20px);
+                                }
+                            }
+                        }
+                    }
+                    &_5 {                        
+                        .gameInfo {
+                            span {
+                                &::after {
+                                    width: calc(22px * 0);
+                                }
+                                &::before {
+                                    width: calc(22px * 5);
+                                    right: calc((22px * 0) + 20px);
+                                }
+                            }
+                        }
                     }
                 }
                 figure {
@@ -99,16 +167,16 @@
                     background-position: center center;
                     // margin-top: calc(-0.9 * var(--gameInfoBarH));
                 }
-                .gameInfo {                    
+                .gameInfo {
                     position: absolute;
                     bottom: 0;
                     height: var(--gameInfoBarH);
                     line-height: var(--gameInfoBarH);
                     width: 100%;
-                    background-color: var(--gameInfoBarBgColor);                    
+                    background-color: var(--gameInfoBarBgColor);
                     z-index: 10;
                     padding-left: var(--gameInfoBarFontLP);
-                    span{
+                    span {
                         display: block;
                         position: relative;
                         color: var(--gameInfoFontColor);
@@ -116,18 +184,30 @@
                         font-size: var(--gameInfoFontSize);
                         font-weight: var(--gameInfoFontWeight);
                         opacity: 0.8;
-                        &::after{
+                        &::after {
                             display: block;
                             content: "";
-                            width: var(--gameInfoBarH);
+                            width: calc(22px * 5);
                             height: var(--gameInfoBarH);
                             position: absolute;
                             top: 0;
-                            right: 10px;
-                            background: url(../images/icons/star.svg) center center no-repeat;
-                            background-size: 15px 16px;
+                            right: 20px;
+                            background: url(../images/icons/star.svg) left center repeat-x;
+                            background-size: 22px 22px;
                             opacity: 0.6;
-
+                        }
+                        &::before {
+                            display: block;
+                            content: "";
+                            width: calc(22px * 5);
+                            height: var(--gameInfoBarH);
+                            position: absolute;
+                            top: 0;
+                            right: 20px;
+                            background: url(../images/icons/star_b.svg) left center repeat-x;
+                            background-size: 22px 22px;
+                            opacity: 0.6;
+                            z-index: 20;
                         }
                     }
                 }
@@ -139,25 +219,23 @@
                     height: var(--gamePlayBarH);
                     line-height: var(--gamePlayBarH);
                     width: 100%;
-                    background-color: var(--gameInfoBarBgColor);                    
-                    z-index: 20;  
+                    background-color: var(--gameInfoBarBgColor);
+                    z-index: 20;
                     display: grid;
-                    grid-template-columns:auto auto;    
+                    grid-template-columns: auto auto;
 
-                    a{
-                        display: inline-block;                       
+                    a {
+                        display: inline-block;
                         text-align: center;
                         color: var(--gamePlayButtonsTextColor);
                         font-family: $generalFont;
                         font-size: var(--gameInfoFontSize);
                         font-weight: var(--gameInfoFontWeight);
 
-                        &:last-child{
+                        &:last-child {
                             background-color: var(--gamePlayPlayButtonColor);
                         }
-                       
                     }
-
                 }
             }
         }

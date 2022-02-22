@@ -21,10 +21,10 @@
     <main class="warper">
         <section class="warper-games">
             <ul id="gameList">
-                <li id="myLoader">
-                </li>
             </ul>
         </section>
+        <li id="myLoader">
+        </li>
     </main>
     <script>
 
@@ -45,6 +45,10 @@
 
         function getOffset(el) {
             var rect = el.getBoundingClientRect();
+            console.log("Element");
+            console.log(el);
+            console.log(rect.top);
+            console.log(rect.top + window.pageYOffset);
             return {
                 left: rect.left + window.pageXOffset,
                 top: rect.top + window.pageYOffset
@@ -52,19 +56,20 @@
         }
         function showOtherItems() {
             console.log("try items");
-            let visibleDistance = 100;
-            myLoader = document.getElementById("myLoader");
+            let visibleDistance = 300;
+            console.log("getOffset(myLoader).top");
+            console.log(getOffset(myLoader).top);
 
             if (myLoader) {
                 if ((window.pageYOffset + window.innerHeight + visibleDistance) > getOffset(myLoader).top) {
+                    console.log("getOffset(myLoader).top");
                     console.log(getOffset(myLoader).top);
-                    // loadAnImage(listOfImages[i]);
                     if (!allLoaded) {
+                        //alert(window.pageYOffset + window.innerHeight + visibleDistance + " : " + getOffset(myLoader).top );
                         printHTML();
                     }
                 }
             }
-
         }
 
 
@@ -78,9 +83,13 @@
             }
         });
 
+        window.addEventListener('resize', function (e) {
+            showOtherItems();
+        });
+
 
         function printHTML() {
-            ticking = true;
+
             let allItemsCont = Object.keys(gamesListFilter).length;
             console.log(endOfTheList);
 
@@ -89,39 +98,35 @@
                 endOfTheList = allItemsCont;
                 allLoaded = true;
             }
-            myLoader = document.getElementById("myLoader");
-            myLoader.remove();
+
+            console.log("endOfTheList");
+            console.log(endOfTheList);
+
+
+
+
 
             for (startList; startList < endOfTheList; startList++) {
                 console.log("startList");
-                console.log(gamesListFilter[startList][1]);
+                console.log(gamesListFilter[startList][1].volatility);
                 console.log(startList);
 
                 let item = document.createElement("LI");
                 item.innerHTML = '<a href="' + gamesListFilter[startList][1].launch_url + '"><figure style="background-image:url(' + gamesListFilter[startList][1].img_url + ');"></figure></a><div class="gameInfo"><span>' + gamesListFilter[startList][1].name + '</span></div><div class="gamePlay"><a href="' + gamesListFilter[startList][1].demo_launch_url + '">' + demoTitle + '</a><a href="' + gamesListFilter[startList][1].launch_url + '">' + playTitle + '</a></div>';
                 let att = document.createAttribute("data-id");
                 att.value = gamesListFilter[startList][0];
+                item.classList.add("volatility_" + gamesListFilter[startList][1].volatility);
                 item.setAttributeNode(att);
                 gameList.appendChild(item);
 
             }
-            if (!allLoaded) {
-                let item = document.createElement("LI");
-                item.id = "myLoader";
-                gameList.appendChild(item);
-            }
-            ticking = false;
-            let visibleDistance = 100;
-            myLoader = document.getElementById("myLoader");
 
-            if (myLoader) {
-                if ((window.pageYOffset + window.innerHeight + visibleDistance) > getOffset(myLoader).top) {
-                    console.log(getOffset(myLoader).top);                    
-                    if (!allLoaded) {
-                        printHTML();
-                    }
-                }
+            if (!allLoaded) {
+                showOtherItems();
             }
+
+
+
         }
 
 

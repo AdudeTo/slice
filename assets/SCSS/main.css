@@ -160,11 +160,17 @@ a {
   --gameInfoBarFontLP: 10px;
   --gameInfoFontSize: 12px;
   --gameInfoFontWeight: 500;
-  --gamePlayButtonsTextColor: #E6F1FF;
-  --gamePlayPlayButtonColor: #0074FA;
+  --gamePlayButtonsTextColor: #e6f1ff;
+  --gamePlayPlayButtonColor: #0074fa;
   --gamePlayBarH: 32px;
   margin: var(--warperMarginTB) var(--warperMarginLR);
   width: auto;
+}
+
+.warper #myLoader {
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
 }
 
 .warper-games ul {
@@ -205,6 +211,51 @@ a {
   opacity: 1;
 }
 
+.warper-games ul li.volatility_1 .gameInfo span::after {
+  width: calc(22px * 4);
+}
+
+.warper-games ul li.volatility_1 .gameInfo span::before {
+  width: calc(22px * 1);
+  right: calc((22px * 4) + 20px);
+}
+
+.warper-games ul li.volatility_2 .gameInfo span::after {
+  width: calc(22px * 3);
+}
+
+.warper-games ul li.volatility_2 .gameInfo span::before {
+  width: calc(22px * 2);
+  right: calc((22px * 3) + 20px);
+}
+
+.warper-games ul li.volatility_3 .gameInfo span::after {
+  width: calc(22px * 2);
+}
+
+.warper-games ul li.volatility_3 .gameInfo span::before {
+  width: calc(22px * 3);
+  right: calc((22px * 2) + 20px);
+}
+
+.warper-games ul li.volatility_4 .gameInfo span::after {
+  width: calc(22px * 1);
+}
+
+.warper-games ul li.volatility_4 .gameInfo span::before {
+  width: calc(22px * 4);
+  right: calc((22px * 1) + 20px);
+}
+
+.warper-games ul li.volatility_5 .gameInfo span::after {
+  width: calc(22px * 0);
+}
+
+.warper-games ul li.volatility_5 .gameInfo span::before {
+  width: calc(22px * 5);
+  right: calc((22px * 0) + 20px);
+}
+
 .warper-games ul li figure {
   display: block;
   width: 100%;
@@ -237,14 +288,28 @@ a {
 .warper-games ul li .gameInfo span::after {
   display: block;
   content: "";
-  width: var(--gameInfoBarH);
+  width: calc(22px * 5);
   height: var(--gameInfoBarH);
   position: absolute;
   top: 0;
-  right: 10px;
-  background: url(../images/icons/star.svg) center center no-repeat;
-  background-size: 15px 16px;
+  right: 20px;
+  background: url(../images/icons/star.svg) left center repeat-x;
+  background-size: 22px 22px;
   opacity: 0.6;
+}
+
+.warper-games ul li .gameInfo span::before {
+  display: block;
+  content: "";
+  width: calc(22px * 5);
+  height: var(--gameInfoBarH);
+  position: absolute;
+  top: 0;
+  right: 20px;
+  background: url(../images/icons/star_b.svg) left center repeat-x;
+  background-size: 22px 22px;
+  opacity: 0.6;
+  z-index: 20;
 }
 
 .warper-games ul li .gamePlay {
