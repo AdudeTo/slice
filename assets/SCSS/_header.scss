@@ -44,7 +44,7 @@
     width: 100%;
     height: var(--headerH);
     margin: auto;  
-    background: url(../images/header_set/grdient.png);
+    background: url(../images/header_set/grdient.webp);
     background-size: auto var(--headerH);
     position: relative;
     .palms{
@@ -53,7 +53,7 @@
         height: var(--headerH);
         top: 0;
         left: 0;
-        background: url(../images/header_set/palms.png) top left no-repeat;
+        background: url(../images/header_set/palms.webp) top left no-repeat;
         background-size: auto var(--headerH);
     }
     .new{
@@ -62,7 +62,7 @@
         height: var(--headerH);
         top: 0;
         left: 0;
-        background: url(../images/header_set/new.png) top right no-repeat;
+        background: url(../images/header_set/new.webp) top right no-repeat;
         background-size: auto var(--headerH);
     }
     .phone{
@@ -71,7 +71,7 @@
         height: var(--headerH);
         top: 0;
         left: 0;
-        background: url(../images/header_set/phone.png) top center no-repeat;
+        background: url(../images/header_set/phone.webp) top center no-repeat;
         background-size: auto var(--headerH);
         z-index: 10;
 
