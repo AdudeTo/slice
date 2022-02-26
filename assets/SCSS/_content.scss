@@ -76,6 +76,7 @@
                 grid-row-end: span 1;
                 min-width: var(--gameItemBoxW);
                 aspect-ratio: var(--imagesRatio);
+                min-height: 140px;
                 position: relative;
                 overflow: hidden;
                 border-radius: 10px;
