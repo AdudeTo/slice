@@ -257,7 +257,7 @@ a {
   right: calc((22px * 0) + 20px);
 }
 
-.warper-games ul li figure {
+.warper-games ul li .figure {
   display: block;
   width: 100%;
   height: calc(100% - var(--gameInfoBarH));

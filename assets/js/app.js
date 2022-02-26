@@ -56,7 +56,7 @@ function printHTML() {
 
     for (startList; startList < endOfTheList; startList++) {
         let item = document.createElement("LI");
-        item.innerHTML = '<a href="' + gamesListFilter[startList][1].launch_url + '"><figure style="background-image:url(' + gamesListFilter[startList][1].img_url + ');"></figure></a><div class="gameInfo"><span>' + gamesListFilter[startList][1].name + '</span></div><div class="gamePlay"><a href="' + gamesListFilter[startList][1].demo_launch_url + '">' + demoTitle + '</a><a href="' + gamesListFilter[startList][1].launch_url + '">' + playTitle + '</a></div>';
+        item.innerHTML = '<a href="' + gamesListFilter[startList][1].launch_url + '"><div class="figure" style="background-image:url(' + gamesListFilter[startList][1].img_url + ');"></div></a><div class="gameInfo"><span>' + gamesListFilter[startList][1].name + '</span></div><div class="gamePlay"><a href="' + gamesListFilter[startList][1].demo_launch_url + '">' + demoTitle + '</a><a href="' + gamesListFilter[startList][1].launch_url + '">' + playTitle + '</a></div>';
         let att = document.createAttribute("data-id");
         att.value = gamesListFilter[startList][0];
         item.classList.add("volatility_" + gamesListFilter[startList][1].volatility);
